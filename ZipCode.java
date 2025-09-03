@@ -68,6 +68,7 @@ class ZipCode {
     private int parseBarCode(String binary) {
         if (binary.length() != 27) {
             System.out.println("Error: bar code must be in multiples of 5-binary digits");
+            return 0;
         }
         
         if (binary.charAt(0) != '1' || binary.charAt(binary.length() - 1) != '1') {
@@ -111,4 +112,5 @@ class ZipCode {
         return zip;
     }
 }
+
  

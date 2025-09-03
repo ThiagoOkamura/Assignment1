@@ -8,7 +8,7 @@ package javaapplication2;
  *
  * @author 2279654
  */
-public class CourseGrades {
+public class CourseGrades implements <Analyzable> {
     private GradedActivity[] grades = new GradedActivity[4];
 
     public CourseGrades() {
@@ -32,6 +32,43 @@ public class CourseGrades {
 
     @Override
     public String toString() {
-        return "CourseGrades{" + "grades=" + grades + '}';
+        return "Lab Score: " + 
+    }
+    
+    @Override
+    public void getAverage() {
+        double sum = 0;
+        for (int i = 0; i < grades.length; i++) {
+            sum += grades[i];
+        }
+        
+        double average = sum / 4;
+        System.out.println("Average score: " + average);
+    }
+    
+    @Override
+    public void getHighest() {
+        double highest = grades[0];
+        for (int i = 0; i < grades.length; i++) {
+            if (grades[i] > highest) {
+                highest = grades[i];
+            }
+        }
+
+        System.out.println("Highest score: " + highest);
+    }
+    
+    @Override
+    public void getLowest() {
+        double lowest = grades[0];
+        for (int i = 0; i < grades.length; i++) {
+            if (grades[i] < lowest) {
+                lowest = grades[i];
+            }
+        }
+
+        System.out.println("Highest score: " + lowest);
     }
 }
+
+

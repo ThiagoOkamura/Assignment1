@@ -9,5 +9,8 @@ package javaapplication2;
  * @author 2279654
  */
 public interface Analyzable {
-    
+    public double getAverage();
+    public GradedActivity getHighest();
+    public GradedActivity getLowest();
 }
+

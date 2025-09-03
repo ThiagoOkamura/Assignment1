@@ -15,9 +15,9 @@ class ZipCode {
             System.out.println(zip + " zip code is more than 5 digits.");
         }
         
-        else {
+       
             this.Zip = zip;
-        }
+        
     }
     
     /**
@@ -112,5 +112,3 @@ class ZipCode {
         return zip;
     }
 }
-
- 

@@ -8,6 +8,22 @@ package assignment1;
  *
  * @author thiag
  */
-public class FinalExam {
-    
+public class FinalExam extends GradedActivity {
+    private int numQuestiions;
+    private double pointsEach;
+    private int numMissed;
+
+    public FinalExam(int numQuestiions, int numMissed) {
+        this.numQuestiions = numQuestiions;
+        this.numMissed = numMissed;
+    }
+
+    public double getPointsEach() {
+        return pointsEach;
+    }
+
+    public int getNumMissed() {
+        return numMissed;
+    }
 }
+

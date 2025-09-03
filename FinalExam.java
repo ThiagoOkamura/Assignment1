@@ -9,13 +9,15 @@ package assignment1;
  * @author thiag
  */
 public class FinalExam extends GradedActivity {
-    private int numQuestiions;
+    private int numQuestions;
     private double pointsEach;
     private int numMissed;
 
     public FinalExam(int numQuestiions, int numMissed) {
-        this.numQuestiions = numQuestiions;
+        this.numQuestions = numQuestiions;
         this.numMissed = numMissed;
+        pointsEach = 100.0 / numQuestions;
+        double numericScore = 100.0 - (numMissed * pointsEach);
     }
 
     public double getPointsEach() {

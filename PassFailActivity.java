@@ -8,6 +8,19 @@ package javaapplication2;
  *
  * @author 2279654
  */
-public class PassFailActivity {
-    
+public class PassFailActivity extends GradedActivity {
+    private double minPassingScore;
+
+    public PassFailActivity(double minPassingScore) {
+        this.minPassingScore = minPassingScore;
+    }
+
+    @Override
+    public char getGrade() {
+        if (super.getScore() >= minPassingScore) {
+            return 'P';
+        }
+        else return 'F'; 
+    } 
 }
+

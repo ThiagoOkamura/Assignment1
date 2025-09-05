@@ -9,7 +9,7 @@ package javaapplication2;
  * @author 2279654
  */
 public class PassFailExam extends PassFailActivity {
-    private int numQuestions;
+     private int numQuestions;
     private double pointsEach;
     private int numMissed;
 
@@ -17,6 +17,18 @@ public class PassFailExam extends PassFailActivity {
         super(minPassingScore);
         this.numQuestions = numQuestions;
         this.numMissed = numMissed;
+        
+        pointsEach = 100 / numQuestions;
+        double numericScore = 100 - (numMissed * pointsEach);
+        
+        setScore(numericScore);
+    }
+
+    @Override
+    public String toString() {
+        return "Each question counts for " + pointsEach + " points." +
+                "\nThe exam score is " + getScore() +
+                "\nThe exam grade is " + getGrade();
     }
 
     public double getPointsEach() {
@@ -27,3 +39,4 @@ public class PassFailExam extends PassFailActivity {
         return numMissed;
     }  
 }
+

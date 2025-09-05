@@ -8,7 +8,7 @@ package javaapplication2;
  *
  * @author 2279654
  */
-public class CourseGrades implements <Analyzable> {
+public class CourseGrades implements Analyzable {
     private GradedActivity[] grades = new GradedActivity[4];
 
     public CourseGrades() {
@@ -31,45 +31,51 @@ public class CourseGrades implements <Analyzable> {
     }
 
     @Override
-    public String toString() {
-        return "Lab Score: " + 
+    public double getAverage() {
+        double sum = 0;
+        for (GradedActivity grade : grades) {
+            sum += grade.getScore();
+        }
+        double avg = sum / 4;
+        return avg;
     }
     
     @Override
-    public void getAverage() {
-        double sum = 0;
-        for (int i = 0; i < grades.length; i++) {
-            sum += grades[i];
+    public GradedActivity getHighest() {
+        GradedActivity highest = grades[0];
+        for (GradedActivity grade : grades) {
+            if (grade.getScore() > highest.getScore()) {
+                highest = grade;
+            }
+        }
+
+        return highest;
+    }
+    
+    @Override
+    public GradedActivity getLowest() {
+        GradedActivity lowest = grades[0];
+        for (GradedActivity grade : grades) {
+            if (grade.getScore() < lowest.getScore()) {
+                lowest = grade;
+            }
         }
         
-        double average = sum / 4;
-        System.out.println("Average score: " + average);
+        return lowest;
     }
     
     @Override
-    public void getHighest() {
-        double highest = grades[0];
-        for (int i = 0; i < grades.length; i++) {
-            if (grades[i] > highest) {
-                highest = grades[i];
-            }
-        }
-
-        System.out.println("Highest score: " + highest);
-    }
-    
-    @Override
-    public void getLowest() {
-        double lowest = grades[0];
-        for (int i = 0; i < grades.length; i++) {
-            if (grades[i] < lowest) {
-                lowest = grades[i];
-            }
-        }
-
-        System.out.println("Highest score: " + lowest);
+    public String toString() {
+        return "Lab Score: " + grades[0].getScore() + "\tGrade: " + grades[0].getGrade() +
+               "\nPass/Fail Exam Score: " + grades[1].getScore() + "\tGrade: " + grades[1].getGrade() +
+               "\nEssay Score: " + grades[2].getScore() + "\tGrade: " + grades[2].getGrade() +
+                "\nFinal Exam Score: " + grades[3].getScore() + "\tGrade: " + grades[3].getGrade() +
+                "\nAverage Score: " + getAverage() +
+                "\nHighest Score: " + getHighest().getScore() +
+                "\nLowest Score: " + getLowest().getScore();
     }
 }
+
 
 
 

@@ -9,7 +9,7 @@ package assignment1;
  * @author thiag
  */
 public class FinalExam extends GradedActivity {
-    private int numQuestions;
+     private int numQuestions;
     private double pointsEach;
     private int numMissed;
 
@@ -18,8 +18,17 @@ public class FinalExam extends GradedActivity {
         this.numMissed = numMissed;
         pointsEach = 100.0 / numQuestions;
         double numericScore = 100.0 - (numMissed * pointsEach);
+        
+        setScore(numericScore);
     }
 
+    @Override
+    public String toString() {
+        return "Each question counts for " + pointsEach + " points." +
+                "\nThe exam score is " + getScore() +
+                "\nThe exam grade is " + getGrade();
+    }
+    
     public double getPointsEach() {
         return pointsEach;
     }
@@ -28,4 +37,5 @@ public class FinalExam extends GradedActivity {
         return numMissed;
     }
 }
+
 

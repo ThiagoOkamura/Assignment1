@@ -15,9 +15,19 @@ public class Essay extends GradedActivity {
     private double content;
 
     public void setScore(double grammar, double spelling, double correctLength, double content) {
+        this.grammar = grammar;
+        this.spelling = spelling;
+        this.correctLength = correctLength;
+        this.content = content;
         double score = grammar + spelling + correctLength + content;
-        System.out.println("Term paper:\nGrammar points: " + grammar + "\nSpelling points: " + spelling + "\nLength points: " + correctLength + 
-                "\nContent points: " + content + "\nTotal points: " + score + "\nGrade: " + super.getGrade());
+        
+        setScore(score);
+    }
+
+    @Override
+    public String toString() {
+        return "Term paper:\nGrammar points: " + grammar + "\nSpelling points: " + spelling + "\nLength points: " + correctLength + 
+                "\nContent points: " + content + "\nTotal points: " + getScore() + "\nGrade: " + getGrade();
     }
     
     public double getGrammar() {
@@ -52,4 +62,5 @@ public class Essay extends GradedActivity {
         this.content = content;
     }
 }
+
 
